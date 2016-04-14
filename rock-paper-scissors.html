@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock, Paper, Scissors</title>
+
+<style type="text/css">
+
+div { 
+     border: 1px solid black;
+     height: 400px;
+     float: left;
+}
+
+     #player, #computer{
+     	width:23%;
+     }
+     #board{
+     	width: 50%;
+     }
+
+#container{text-align:center ;
+width:100%;}
+</style> 
+<script type="text/javascript">
+	var playerImage = " ";
+	var randomNumber;
+	var cMessage;
+
+	function update(num){
+		randomNumber = Math.floor( ( Math.random() * 3 ) + 1);
+
+		if (num==1){
+			playerImage="rock.jpeg";
+
+		}
+		else if (num==2){
+			playerImage="paper.jpeg";
+		}
+		else if (num==3){
+			playerImage="scissors.jpeg";
+		}
+
+
+		 if (randomNumber==1){
+			cMessage="rock";
+
+		}
+		else if (randomNumber==2){
+			cMessage="paper";
+		}
+		else if (randomNumber==3){
+			cMessage="scissors";
+		}
+
+
+
+		if( num == randomNumber) {
+
+			scoreText = "Computer Wins";
+		}
+		else if (num==1 && randomNumber==2 ) {
+			scoreText = "Computer Wins";
+		}
+		else if(num==2 && randomNumber==3 ){
+			scoreText = "Computer Wins"	;
+		}
+		else if(num==3 && randomNumber==1 ){
+			scoreText = "Computer Wins" ;
+		}
+
+		// document.getElementById('pResult').innerHTML = message;
+		document.getElementById('cResult').innerHTML = cMessage;
+		document.getElementById('scoreText').innerHTML = scoreText;
+		document.getElementById('player-image').innerHTML = '<img src="Images/' +playerImage+ '">'
+
+
+
+
+
+	}
+</script>
+</head>
+<body>
+	<div id="container">
+
+
+		<h1>Rock, Paper, Scissors Game</h1>
+		<h3(Best out of 3 rounds win!)</h3>
+
+		<!-- player's box -->
+		<div id="player">
+			<p>Player</p>
+			<p id="pResult"></p>
+
+	     </div>
+
+	     <!-- score board -->
+	     <div id="board">
+	     	<p>Board</p>
+	     	<p id= "scoreText"></p>
+
+	     	
+
+
+	     	<div id="option">
+	     		<!--1 is rock  -->
+	     		<a href="#" onclick="update(1);">rock</a>
+	     		<a href="#" onclick="update(2);">paper</a>
+	     		<a href="#" onclick="update(3);">scissors</a>
+	     	</div>
+
+		</div>
+		
+		<div id="computer">
+			 <p>Computer</p>
+			 <p id="cResult"></p>
+			 <p id="player-image">
+			 </p>	
+
+
+
+		</div>
+	</div>
+</body>
+</html>
