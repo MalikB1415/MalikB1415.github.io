@@ -5,30 +5,55 @@
 
 <style type="text/css">
 
-div { 
-     border: 1px solid black;
-     height: 400px;
-     float: left;
-}
+	div { 
+	    border: 1px solid black;
+	    height: 400px;
+	    float: left;
+	}
 
-     #player, #computer{
+     #player, #computer {
      	width:23%;
      }
+
      #board{
      	width: 50%;
      }
 
-#container{text-align:center ;
-width:100%;}
+	#container{
+		text-align:center;
+		width:100%;
+		border: none;
+	}
+	#option{ 
+		
+	border:none; 
+		
+	}
+
+	#option img{
+		width:30%;
+	}
+
+
 </style> 
 <script type="text/javascript">
 	var playerImage = " ";
 	var randomNumber;
-	var cMessage;
+	var computerImage;
+	var round = 0;
+	var playerScore= 0;
+	var computerScore= 0;
+
+
+
 
 	function update(num){
+		// give computer random num
 		randomNumber = Math.floor( ( Math.random() * 3 ) + 1);
+		computerScore++;
+		scoreText = "Computer Wins";
 
+		// see what option player
 		if (num==1){
 			playerImage="rock.jpeg";
 
@@ -40,38 +65,48 @@ width:100%;}
 			playerImage="scissors.jpeg";
 		}
 
-
+		// random number image update 
 		 if (randomNumber==1){
-			cMessage="rock";
+			computerImage="rock.jpeg";
 
 		}
 		else if (randomNumber==2){
-			cMessage="paper";
+			computerImage="paper.jpeg";
 		}
 		else if (randomNumber==3){
-			cMessage="scissors";
+			computerImage="scissors.jpeg";
 		}
 
 
 
-		if( num == randomNumber) {
+		// if( num == randomNumber) {
 
-			scoreText = "Computer Wins";
-		}
-		else if (num==1 && randomNumber==2 ) {
-			scoreText = "Computer Wins";
-		}
-		else if(num==2 && randomNumber==3 ){
-			scoreText = "Computer Wins"	;
-		}
-		else if(num==3 && randomNumber==1 ){
-			scoreText = "Computer Wins" ;
-		}
+		// 	scoreText = "Computer Wins";
+		// }
+		// else if (num==1 && randomNumber==2 ) {
+		// 	scoreText = "Computer Wins";
+		// 	computerscore++;
+		// }
+		// else if(num==2 && randomNumber==3 ){
+		// 	scoreText = "Computer Wins"	;
+		// 	computerscore++;
+		// }
+		// else if(num==3 && randomNumber==1 ){
+		// 	scoreText = "Computer Wins" ;
+		// 	computerscore++;
+		// }
 
 		// document.getElementById('pResult').innerHTML = message;
-		document.getElementById('cResult').innerHTML = cMessage;
+		// document.getElementById('cResult').innerHTML = computerImage;
 		document.getElementById('scoreText').innerHTML = scoreText;
-		document.getElementById('player-image').innerHTML = '<img src="Images/' +playerImage+ '">'
+		document.getElementById('player-image').innerHTML = '<img src="Images/' +playerImage+ '">';
+		document.getElementById('computer-image').innerHTML = '<img src="Images/' +computerImage+ '">';
+		document.getElementById('cScore').innerHTML = computerScore;
+		document.getElementById('pScore').innerHTML = playerScore;
+
+		
+
+
 
 
 
@@ -91,22 +126,29 @@ width:100%;}
 		<div id="player">
 			<p>Player</p>
 			<p id="pResult"></p>
+			<p id="player-image">
 
 	     </div>
 
 	     <!-- score board -->
 	     <div id="board">
 	     	<p>Board</p>
+
+
 	     	<p id= "scoreText"></p>
+	     	<h3 >Player Score : <span id="pScore"></span></h3>
+	     	<h3 >computer Score : <span id="cScore"></span></h3>
+
+
 
 	     	
 
 
 	     	<div id="option">
 	     		<!--1 is rock  -->
-	     		<a href="#" onclick="update(1);">rock</a>
-	     		<a href="#" onclick="update(2);">paper</a>
-	     		<a href="#" onclick="update(3);">scissors</a>
+	     		<a href="#" onclick="update(1);"><img src="Images/rock.jpeg"></a>
+	     		<a href="#" onclick="update(2);"><img src="Images/paper.jpeg"></a>
+	     		<a href="#" onclick="update(3);"><img src="Images/scissors.jpeg"></a>
 	     	</div>
 
 		</div>
@@ -114,7 +156,8 @@ width:100%;}
 		<div id="computer">
 			 <p>Computer</p>
 			 <p id="cResult"></p>
-			 <p id="player-image">
+			 <p id="computer-image">
+			 
 			 </p>	
 
 
