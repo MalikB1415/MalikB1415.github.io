@@ -3,3 +3,23 @@ body {
 	background: url(http://d3thflcq1yqzn0.cloudfront.net/000706884_prevstill.jpeg);
 
 }
+
+/* unvisited link */
+a:link {
+    color: lime;
+}
+
+/* visited link */
+a:visited {
+    color: aliceblue;
+}
+
+/* mouse over link */
+a:hover {
+    color: aqua;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
